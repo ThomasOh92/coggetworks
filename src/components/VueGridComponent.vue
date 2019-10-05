@@ -21,16 +21,18 @@
                 :w="item.w"
                 :h="item.h"
                 :i="item.i"
+                :minH=3
                 @resize="resize"
                 @move="move"
                 @resized="resized"
                 @moved="moved"
                 >
-                    <div contenteditable="true">
+                    <div>
                         {{item.i}}
                         <br>
+                        <div contenteditable="true">
                         {{item.content}}
-                        <br>
+                        </div>
                         <button @click="accessFile(item.content)">Open File!</button>
                         <button @click="removeItem(item)">Delete!</button>
                     </div>
@@ -57,9 +59,10 @@ const {shell} = require('electron');
 
 import VueGridLayout from 'vue-grid-layout';
 import fab from 'vue-fab';
+import { access } from 'fs';
 
 var testLayout = [
-    {"x":0,"y":0,"w":2,"h":2,"i":"0", content: "hellothomo"}
+    {"x":0,"y":0,"w":2,"h":4,"i":"0", content: "hellothomo"}
 
     ];
 let filename
@@ -82,7 +85,7 @@ export default {
                 colNum: 12,
                 index: 0,
                 bgColor: '#778899',
-                position: 'top-right',
+                position: 'bottom-left',
                 positiontype: 'absolute',
                 fabActions: [
                     {
@@ -93,7 +96,7 @@ export default {
                         name: 'addStickyNote',
                         icon: 'folder'
                     }
-                ]
+                ],
             }
         },
         mounted: function () {
@@ -130,7 +133,6 @@ export default {
                     this.layout.push(item);
                     } 
                 )
-
             },
             move: function(i, newX, newY){
                 ("MOVE i=" + i + ", X=" + newX + ", Y=" + newY);
@@ -152,6 +154,8 @@ export default {
                 this.index++;
                 this.layout.push(item);
                 //need to figure out how to turn this into a sticky note//
+                /*conditional rendering, vif, vbind, end up binding every item's button,
+                instead of the relevant button. Need to find a way to conditional render for some itms*/
                 
                 /*const f = document.createElement('input');
                 f.style.display='none';
@@ -164,8 +168,6 @@ export default {
                 var absolutefilepath = path.resolve('./src/TestStuffHolder/')
                 shell.openItem(absolutefilepath + '/'+ filename)
             }
-            //Shell doesn't seem to work with relative path, find a way to convert?
-            //C:\Users\ohcst\Dropbox\web-projects\Coggets - Electron\coggetsfilemanager\src\TestStuffHolder
          }
     }
 

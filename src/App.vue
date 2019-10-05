@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <StickyNoteComponent/>
+    <hr>
     <VueGridComponent/>
     <hr>
     <DragAndDropComponent/>
@@ -10,12 +12,15 @@
 <script>
 import VueGridComponent from './components/VueGridComponent.vue';
 import DragAndDropComponent from './components/DragAndDropComponent.vue'
+import StickyNoteComponent from './components/StickyNoteComponent.vue'
+
 
 export default {
   name: 'app',
   components: {
     VueGridComponent,
     DragAndDropComponent,
+    StickyNoteComponent,
   }
 }
 </script>
