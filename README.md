@@ -1,4 +1,4 @@
-# coggetsfilemanager
+# coggetworks
 
 ## Project setup
 ```

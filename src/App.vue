@@ -2,16 +2,17 @@
   <div id="app">
     <StickyNoteComponent/>
     <hr>
+    <ReferenceFilesComponent/>
+    <hr>
     <VueGridComponent/>
     <hr>
-    <DragAndDropComponent/>
     <hr>
   </div>
 </template>
 
 <script>
 import VueGridComponent from './components/VueGridComponent.vue';
-import DragAndDropComponent from './components/DragAndDropComponent.vue'
+import ReferenceFilesComponent from './components/ReferenceFilesComponent.vue'
 import StickyNoteComponent from './components/StickyNoteComponent.vue'
 
 
@@ -19,7 +20,7 @@ export default {
   name: 'app',
   components: {
     VueGridComponent,
-    DragAndDropComponent,
+    ReferenceFilesComponent,
     StickyNoteComponent,
   }
 }
