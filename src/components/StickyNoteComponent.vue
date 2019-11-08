@@ -33,8 +33,8 @@ export default {
         background-color: blue;
         color:white;
         text-align: center;
-        width:300px;
-        height:300px;
+        width:60%;
+        height:60%;
     }
 
 </style>

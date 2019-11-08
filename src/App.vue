@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <StickyNoteComponent/>
-    <hr>
-    <ReferenceFilesComponent/>
-    <hr>
-    <VueGridComponent/>
-    <hr>
-    <hr>
+      <div class="column">
+         <WorkingDraftComponent/>
+      </div>
+      <div class="column">    
+        <ReferenceFilesComponent/>
+      </div>
+      <div class="column">
+         <StickyNoteComponent/>
+      </div>
   </div>
 </template>
 
 <script>
+import WorkingDraftComponent from './components/WorkingDraftComponent.vue';
 import VueGridComponent from './components/VueGridComponent.vue';
 import ReferenceFilesComponent from './components/ReferenceFilesComponent.vue'
 import StickyNoteComponent from './components/StickyNoteComponent.vue'
@@ -19,6 +22,7 @@ import StickyNoteComponent from './components/StickyNoteComponent.vue'
 export default {
   name: 'app',
   components: {
+    WorkingDraftComponent,
     VueGridComponent,
     ReferenceFilesComponent,
     StickyNoteComponent,
@@ -34,5 +38,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.column {
+  float: left;
+  border-right: 1px solid #000;
+  padding: 10px
 }
 </style>

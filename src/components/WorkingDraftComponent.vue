@@ -4,7 +4,7 @@
     @dragleave.prevent 
     @dragend.prevent 
     @drop="drop">
-        <p>Drag your reference files here</p>
+        <p>Drag your working draft here</p>
     </div>
 </template>
 
@@ -17,7 +17,7 @@ const {shell} = require('electron');
 import { access } from 'fs';
 
 export default { 
-  name: 'ReferenceFilesComponent',
+  name: 'WorkingDraftComponent',
   methods:{
     drop(e) {
         e.preventDefault();
